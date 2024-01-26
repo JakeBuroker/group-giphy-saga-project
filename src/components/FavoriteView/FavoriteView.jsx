@@ -66,7 +66,9 @@ function FavoriteView() {
     </React.Fragment>
   );
 
-  return (
+  function favoriteList() {
+    if (favoriteGifs.length > [])
+    return (
     <div>
       {favoriteGifs.map((gif) => (
         <div key={gif.id}>
@@ -118,6 +120,15 @@ function FavoriteView() {
         </div>
       ))}
     </div>
-  );
+  )
+  else return (
+    <h1> YOU CURRENTLY HAVE NO GIFS SAVED </h1>
+  )
+  }
+  return (
+    favoriteList()
+      );
+
 }
+
 export default FavoriteView;
