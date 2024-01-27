@@ -3,7 +3,7 @@ import * as React from "react";
 import GifCard from "../GifCard/GifCard";
 
 const GiphyResults = () => {
-  const results = useSelector((store) => store.input);
+const results = useSelector((store) => store.input);
 
   if (results.data) {
     return (
@@ -21,7 +21,4 @@ const GiphyResults = () => {
   return <p>Nothing to show here!</p>;
 };
 
-export default GiphyResults;
-
-// gif on a card
-// favorite underneath that
+export default GiphyResults

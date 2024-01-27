@@ -14,11 +14,13 @@ const input = (state = {}, action) => {
   //else default
   return state;
 };
+
 // rootsaga runs all generator functions
 function* rootSaga() {
   yield takeLatest("FETCH_GIFS", fetchGifs);
   yield takeLatest("POST_FAVORITE", postFavorite)
 }
+
 // creates fetchGifsyield axios.get("/api/gif", action.payload);
 function* fetchGifs(action) {
   console.log(action.payload);
@@ -49,6 +51,7 @@ const store = createStore(
   combineReducers({ input }),
   applyMiddleware(sagaMiddleware, logger)
 );
+
 //run saga
 sagaMiddleware.run(rootSaga);
 export default store;

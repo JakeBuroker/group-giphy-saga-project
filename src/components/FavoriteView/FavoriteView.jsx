@@ -11,7 +11,6 @@ import Select from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import axios from "axios";
 import Button from "@mui/material/Button";
@@ -46,6 +45,7 @@ function FavoriteView() {
         console.error(error);
       });
   };
+
   // delete favororite
   function deleteFavorite(gifId) {
     axios
@@ -57,14 +57,6 @@ function FavoriteView() {
         console.log("Error in delete", error);
       });
   }
-
-  const card = (
-    <React.Fragment>
-      <CardContent></CardContent>
-      {/* display here */}
-      <CardActions></CardActions>
-    </React.Fragment>
-  );
 
   function favoriteList() {
     if (favoriteGifs.length > [])
@@ -94,7 +86,6 @@ function FavoriteView() {
               <img src={gif.url} alt={gif.title} />
 
               <Stack direction="column" spacing={10}>
-                {/* <Button onChange={() => setIsFavorited(true)} variant="outlined" onClick={handlePost}>FAVORITE</Button> */}
                 <FormControl sx={{ m: 1, minWidth: 80 }}>
                   <InputLabel id={`label-${gif.id}`}>
                     Choose Category
@@ -123,12 +114,9 @@ function FavoriteView() {
   )
   else return (
     <h1> YOU CURRENTLY HAVE NO GIFS SAVED </h1>
-  )
-  }
+  )}
   return (
-    favoriteList()
-      );
-
+    favoriteList())
 }
 
 export default FavoriteView;

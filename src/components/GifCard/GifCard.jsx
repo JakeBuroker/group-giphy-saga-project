@@ -10,7 +10,6 @@ import { useState } from "react";
 
 const GifCard = ({ gif }) => {
   const [isFavorited, setIsFavorited] = useState(false);
-
   const dispatch = useDispatch();
 
   const favButton = () => {
@@ -33,7 +32,6 @@ const GifCard = ({ gif }) => {
   };
 
   const handlePost = () => {
-    // console.log('in hanlde post');
     setIsFavorited(true);
     dispatch({
       type: "POST_FAVORITE",
@@ -51,13 +49,13 @@ const GifCard = ({ gif }) => {
       <CardActions></CardActions>
     </React.Fragment>
   );
+  
   return (
     <>
       <Box sx={{ minWidth: 275 }}>
         <Card variant="outlined">
           {card}
           <Stack direction="row" spacing={2}>
-            {/* <Button onChange={() => setIsFavorited(true)} variant="outlined" onClick={handlePost}>FAVORITE</Button> */}
             {isFavorited ? (
               <Button disabled variant="outlined">
                 FAVORITE

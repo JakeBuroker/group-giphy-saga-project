@@ -6,16 +6,11 @@ import Button from "@mui/material/Button";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import GiphyResults from "../GiphyResults/GiphyResults";
-import { HashRouter as Router, Route } from "react-router-dom";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function Home() {
   // setup local state
   const [userInput, setUserInput] = useState("");
-
-  // input is a misnomer, actually the results from the GET to Giphy
-  const input = useSelector((store) => store.input);
-
   // initializing dispatch - to communicate with store
   const dispatch = useDispatch();
   // declaring usHistory to initialize history array
@@ -29,8 +24,6 @@ function Home() {
     dispatch({ type: "FETCH_GIFS", payload: userInput });
     setUserInput("");
   }
-
-  console.log(input.data);
 
   return (
     <div>
@@ -47,7 +40,6 @@ function Home() {
             setUserInput(event.target.value);
           }}
           fullWidth
-          label="fullWidth"
           id="fullWidth"
         />
       </Box>
@@ -72,17 +64,10 @@ function Home() {
           }}
           variant="contained"
         >
-          FavoriteView
+          Favorites
         </Button>
       </Stack>
       <div>
-        {/* {input.data.map((obj) => {
-          return (
-            <>
-              <p>{obj.id}</p>
-              <img src={`${obj.image.url}`}/>
-            </>)
-        })} */}
         <GiphyResults />
       </div>
     </div>
